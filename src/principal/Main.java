@@ -1,20 +1,21 @@
 package principal;
 
-import interfaces.Barco;
-import interfaces.Peixe;
+import interfaces.Produto;
+import interfaces.Servico;
 
 public class Main {
 
     public static void main(String[] args) {
 
-        Barco meuBarco = new Barco();
-        Peixe meuPeixe = new Peixe();
+        Produto notebook = new Produto(3500.0);
+        Servico consultoria = new Servico(1500.0);
 
-        System.out.println("--- Testando a Interface Navegavel ---");
-        meuBarco.navegar(); // Executa o comportamento mecânico de navegação.
-        meuPeixe.navegar(); // Executa o comportamento biológico de navegação.
+        System.out.println("--- Cálculo de Tributos ---");
+        System.out.println("Produto (Preço: R$ " + notebook.getPreco() + ")");
+        System.out.println("Imposto a pagar (12%): R$ " + notebook.calcularImposto());
 
-        /* Interfaces agrupam classes sem parentesco biológico ou estrutural,
-           estabelecendo uma associação baseada exclusivamente em capacidades comuns. */
+
+        System.out.println("Serviço (Valor: R$ " + consultoria.getValor() + ")");
+        System.out.println("Imposto a pagar (6%): R$ " + consultoria.calcularImposto());
     }
 }
