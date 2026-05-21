@@ -1,17 +1,27 @@
 package principal;
 
-import heranca.Carro;
+// Importações do pacote heranca
+import heranca.Aluno;
+import heranca.Professor;
 
 public class Main {
 
     public static void main(String[] args) {
 
-        // Criando um objeto do tipo Carro
-        Carro meuCarro = new Carro("Toyota", 2024, 4);
+        Aluno aluno = new Aluno("Gabriel", 20, "2026001F");
 
-        // Chamando o método ligar() que foi herdado de Veiculo
-        meuCarro.ligar();
+        Professor professor = new Professor("Diego Alves", 35, "Programação Orientada a Objetos");
 
-        System.out.println("Número de portas do carro: " + meuCarro.getNumPortas());
+        aluno.apresentar();
+
+        professor.apresentar();
+
+        /*
+
+        Tanto 'aluno' quanto 'professor' conseguem chamar o método apresentar()
+        porque ambos SÃO uma extensão de Pessoa. O código do método foi escrito
+        uma única vez na classe pai e reaproveitado integralmente pelas classes filhas,
+        evitando a duplicação de lógica no projeto.
+         */
     }
 }
