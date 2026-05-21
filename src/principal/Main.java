@@ -1,22 +1,24 @@
 package principal;
 
-import heranca.Funcionario;
-import heranca.Gerente;
+import abstratas.Carro;
+import abstratas.Moto;
+import abstratas.Veiculo;
 
 public class Main {
 
     public static void main(String[] args) {
 
-        Funcionario func = new Funcionario("João Silva", 3000.0);
-        Gerente ger = new Gerente("Ana Costa", 8000.0);
+        Carro meuCarro = new Carro("Toyota", 2024, 4);
+        Moto minhaMoto = new Moto("Honda", 2025);
 
-        System.out.println("Nome: " + func.getNome());
-        System.out.println("Salário: R$ " + func.getSalario());
-        System.out.println("Bônus (10%): R$ " + func.calcularBonus());
+        meuCarro.ligar();
+        meuCarro.buzinar();
 
+        minhaMoto.ligar();
+        minhaMoto.buzinar();
 
-        System.out.println("Nome: " + ger.getNome());
-        System.out.println("Salário: R$ " + ger.getSalario());
-        System.out.println("Bônus Sobrescrito (20%): R$ " + ger.calcularBonus());
+        /*Se você remover as duas barras "//" da linha abaixo para testar:
+        Veiculo v = new Veiculo("Genérico", 2026);
+        O IntelliJ vai dar o erro: 'Veiculo' is abstract; cannot be instantiated*/
     }
 }
