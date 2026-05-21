@@ -1,24 +1,25 @@
 package principal;
 
-import abstratas.Carro;
-import abstratas.Moto;
-import abstratas.Veiculo;
+import abstratas.Circulo;
+import abstratas.Retangulo;
 
 public class Main {
 
     public static void main(String[] args) {
 
-        Carro meuCarro = new Carro("Toyota", 2024, 4);
-        Moto minhaMoto = new Moto("Honda", 2025);
+        Circulo circulo = new Circulo(5.0);
+        Retangulo retangulo = new Retangulo(4.0, 3.0);
 
-        meuCarro.ligar();
-        meuCarro.buzinar();
+        System.out.println("--- Área do Círculo ---");
+        System.out.println("Raio: " + circulo.getRaio());
+        System.out.println("Área calculada: " + circulo.calcularArea());
 
-        minhaMoto.ligar();
-        minhaMoto.buzinar();
 
-        /*Se você remover as duas barras "//" da linha abaixo para testar:
-        Veiculo v = new Veiculo("Genérico", 2026);
-        O IntelliJ vai dar o erro: 'Veiculo' is abstract; cannot be instantiated*/
+        System.out.println("--- Área do Retângulo ---");
+        System.out.println("Dimensões: " + retangulo.getLargura() + "x" + retangulo.getAltura());
+        System.out.println("Área calculada: " + retangulo.calcularArea());
+
+        /* Classes abstratas funcionam estritamente como matrizes de herança;
+           a tentativa de instanciação direta (new Forma()) gera erro de compilação. */
     }
 }
