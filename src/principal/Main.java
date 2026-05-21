@@ -1,25 +1,20 @@
 package principal;
 
-import abstratas.ContaCorrente;
-import abstratas.ContaPoupanca;
+import interfaces.Contrato;
+import interfaces.Relatorio;
 
 public class Main {
 
     public static void main(String[] args) {
 
-        ContaCorrente cc = new ContaCorrente();
-        cc.depositar(100.0);
-        cc.sacar(150.0); // Deve permitir e deixar o saldo em -50.0
+        Relatorio relatorio = new Relatorio();
+        Contrato contrato = new Contrato();
 
-        System.out.println("--- Saldo Conta Corrente ---");
-        System.out.println("Saldo atual: R$ " + cc.getSaldo());
+        System.out.println("--- Testando as Implementações da Interface ---");
+        relatorio.imprimir(); // Executa a lógica de impressão específica do relatório.
+        contrato.imprimir();  // Executa a lógica de impressão específica do contrato.
 
-
-        ContaPoupanca poupanca = new ContaPoupanca();
-        poupanca.depositar(100.0);
-        poupanca.sacar(150.0); // Deve recusar e exibir a mensagem de erro
-
-        System.out.println("--- Saldo Conta Poupança ---");
-        System.out.println("Saldo atual: R$ " + poupanca.getSaldo());
+        /* Interfaces viabilizam o desacoplamento de código. Diferente da herança simples,
+           uma única classe pode implementar múltiplas interfaces simultaneamente. */
     }
 }
