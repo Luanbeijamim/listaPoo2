@@ -1,5 +1,8 @@
 package principal;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import polimorfismo.Animal;
 import polimorfismo.Cachorro;
 import polimorfismo.Gato;
@@ -8,17 +11,24 @@ public class Main {
 
     public static void main(String[] args) {
 
-        /* A declaração usa a superclasse como tipo estático, enquanto a
-           instanciação define o tipo dinâmico do objeto na memória. */
-        Animal animal1 = new Cachorro("Rex");
-        Animal animal2 = new Gato("Mimi");
+        /* Uso do Generics (<Animal>) para restringir a coleção a objetos da superclasse
+           ou de suas subclasses, aplicando a abstração via interface List. */
+        List<Animal> listaAnimais = new ArrayList<>();
 
-        System.out.println("--- Testando Polimorfismo ---");
+        listaAnimais.add(new Cachorro("Rex"));
+        listaAnimais.add(new Gato("Mimi"));
+        listaAnimais.add(new Cachorro("Thor"));
+        listaAnimais.add(new Gato("Garfield"));
 
-        animal1.emitirSom(); // Invoca a implementação contida em Cachorro.
-        animal2.emitirSom(); // Invoca a implementação contida em Gato.
+        System.out.println("--- Percorrendo a Lista com For-Each ---");
 
-        /* O polimorfismo reduz o acoplamento do sistema, permitindo interagir com
-           abstrações genéricas sem depender de especificações rígidas. */
+        /* O laço itera de forma agnóstica; a JVM resolve o método adequado de
+           cada instância contida na lista em tempo de execução. */
+        for (Animal animal : listaAnimais) {
+            animal.emitirSom(); // Execução polimórfica baseada no objeto atual da iteração.
+        }
+
+        /* Estruturas baseadas em polimorfismo respeitam o princípio Aberto/Fechado (OCP):
+           novos subtipos podem ser adicionados sem alterar o código de processamento existente. */
     }
 }
