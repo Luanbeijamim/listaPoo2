@@ -1,16 +1,13 @@
 package principal;
 
-import wrappers.Exercicio02;
+import wrappers.Exercicio03;
 
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println("=== Executando Lista de POO ===");
+        System.out.println("=== Executando Lista de POO ===\n");
 
-        // Se quiser rodar o exercício 1:
-        // Exercicio01 ex1 = new Exercicio01();
-        // ex1.executar();
-        Exercicio02 ex2 = new Exercicio02();
-        ex2.executar();
+        Exercicio03 ex3 = new Exercicio03();
+        ex3.executar();
     }
 }
