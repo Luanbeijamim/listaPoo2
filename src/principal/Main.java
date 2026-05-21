@@ -1,21 +1,24 @@
 package principal;
 
-import interfaces.Produto;
-import interfaces.Servico;
+import polimorfismo.Animal;
+import polimorfismo.Cachorro;
+import polimorfismo.Gato;
 
 public class Main {
 
     public static void main(String[] args) {
 
-        Produto notebook = new Produto(3500.0);
-        Servico consultoria = new Servico(1500.0);
+        /* A declaração usa a superclasse como tipo estático, enquanto a
+           instanciação define o tipo dinâmico do objeto na memória. */
+        Animal animal1 = new Cachorro("Rex");
+        Animal animal2 = new Gato("Mimi");
 
-        System.out.println("--- Cálculo de Tributos ---");
-        System.out.println("Produto (Preço: R$ " + notebook.getPreco() + ")");
-        System.out.println("Imposto a pagar (12%): R$ " + notebook.calcularImposto());
+        System.out.println("--- Testando Polimorfismo ---");
 
+        animal1.emitirSom(); // Invoca a implementação contida em Cachorro.
+        animal2.emitirSom(); // Invoca a implementação contida em Gato.
 
-        System.out.println("Serviço (Valor: R$ " + consultoria.getValor() + ")");
-        System.out.println("Imposto a pagar (6%): R$ " + consultoria.calcularImposto());
+        /* O polimorfismo reduz o acoplamento do sistema, permitindo interagir com
+           abstrações genéricas sem depender de especificações rígidas. */
     }
 }
