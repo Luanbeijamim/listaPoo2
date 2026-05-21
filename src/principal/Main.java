@@ -1,25 +1,25 @@
 package principal;
 
-import abstratas.Circulo;
-import abstratas.Retangulo;
+import abstratas.ContaCorrente;
+import abstratas.ContaPoupanca;
 
 public class Main {
 
     public static void main(String[] args) {
 
-        Circulo circulo = new Circulo(5.0);
-        Retangulo retangulo = new Retangulo(4.0, 3.0);
+        ContaCorrente cc = new ContaCorrente();
+        cc.depositar(100.0);
+        cc.sacar(150.0); // Deve permitir e deixar o saldo em -50.0
 
-        System.out.println("--- Área do Círculo ---");
-        System.out.println("Raio: " + circulo.getRaio());
-        System.out.println("Área calculada: " + circulo.calcularArea());
+        System.out.println("--- Saldo Conta Corrente ---");
+        System.out.println("Saldo atual: R$ " + cc.getSaldo());
 
 
-        System.out.println("--- Área do Retângulo ---");
-        System.out.println("Dimensões: " + retangulo.getLargura() + "x" + retangulo.getAltura());
-        System.out.println("Área calculada: " + retangulo.calcularArea());
+        ContaPoupanca poupanca = new ContaPoupanca();
+        poupanca.depositar(100.0);
+        poupanca.sacar(150.0); // Deve recusar e exibir a mensagem de erro
 
-        /* Classes abstratas funcionam estritamente como matrizes de herança;
-           a tentativa de instanciação direta (new Forma()) gera erro de compilação. */
+        System.out.println("--- Saldo Conta Poupança ---");
+        System.out.println("Saldo atual: R$ " + poupanca.getSaldo());
     }
 }
