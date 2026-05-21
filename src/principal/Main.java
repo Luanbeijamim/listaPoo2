@@ -1,20 +1,20 @@
 package principal;
 
-import interfaces.Contrato;
-import interfaces.Relatorio;
+import interfaces.Barco;
+import interfaces.Peixe;
 
 public class Main {
 
     public static void main(String[] args) {
 
-        Relatorio relatorio = new Relatorio();
-        Contrato contrato = new Contrato();
+        Barco meuBarco = new Barco();
+        Peixe meuPeixe = new Peixe();
 
-        System.out.println("--- Testando as Implementações da Interface ---");
-        relatorio.imprimir(); // Executa a lógica de impressão específica do relatório.
-        contrato.imprimir();  // Executa a lógica de impressão específica do contrato.
+        System.out.println("--- Testando a Interface Navegavel ---");
+        meuBarco.navegar(); // Executa o comportamento mecânico de navegação.
+        meuPeixe.navegar(); // Executa o comportamento biológico de navegação.
 
-        /* Interfaces viabilizam o desacoplamento de código. Diferente da herança simples,
-           uma única classe pode implementar múltiplas interfaces simultaneamente. */
+        /* Interfaces agrupam classes sem parentesco biológico ou estrutural,
+           estabelecendo uma associação baseada exclusivamente em capacidades comuns. */
     }
 }
