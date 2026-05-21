@@ -1,26 +1,32 @@
 package principal;
 
-import interfaces.Imprimivel;
-import interfaces.Contrato;
-import interfaces.Relatorio;
+import java.util.ArrayList;
+import java.util.List;
+
+import abstratas.Forma;
+import abstratas.Circulo;
+import abstratas.Retangulo;
 
 public class Main {
 
     public static void main(String[] args) {
 
-        Contrato meuContrato = new Contrato();
-        Relatorio meuRelatorio = new Relatorio();
+        /* Agrupamento de diferentes implementações sob o tipo da superclasse
+           abstrata utilizando uma coleção parametrizada. */
+        List<Forma> listaFormas = new ArrayList<>();
 
+        // Adição de instâncias concretas à lista polimórfica.
+        listaFormas.add(new Circulo(2.5));
+        listaFormas.add(new Retangulo(4.0, 5.0));
+        listaFormas.add(new Circulo(5.0));
 
-        imprimirDocumento(meuContrato);
-        imprimirDocumento(meuRelatorio);
-    }
+        System.out.println("--- Calculando Áreas Polimorficamente ---");
 
-    /* O método estático recebe o tipo da interface como parâmetro, permitindo
-       que qualquer classe compatível com o contrato seja processada. */
-    public static void imprimirDocumento(Imprimivel doc) {
-        /* A chamada do método é resolvida dinamicamente com base na
-           implementação real do objeto passado. */
-        doc.imprimir();
+        /* A iteração utiliza a referência abstrata para invocar o comportamento
+           sobrescrito em cada classe filha (Dynamic Binding). */
+        for (Forma forma : listaFormas) {
+            // O cálculo executado é estritamente o da figura correspondente à instância.
+            System.out.println("Área da forma: " + forma.calcularArea());
+        }
     }
 }
